@@ -65,7 +65,7 @@ var SSC_PINS = [
     "x": 38.589743589743584,
     "y": 64.61111111111111,
     "title": "lurker trash 1",
-    "message": "1. kill priestess\n2. kill shatters\n3. kill honor guard\n\n- KICK HEALS\n- honor guard has mortal cleave and knock up, and fear\n- shatters can be grounded and reflected",
+    "message": "1. kill priestess\n2. kill shatters\n3. kill honor guard\n\n- KICK HEALS\n- honor guard has mortal cleave, knock up, and fear\n- shatters can be grounded and reflected",
     "warning": "",
     "map": "ssc"
   },
@@ -375,7 +375,7 @@ var SSC_PINS = [
     "x": 80.93406593406594,
     "y": 55.92857142857143,
     "title": "VASHJ",
-    "message": "PHASE 1\n1. pull to edge of water\n2. SPREAD OUT for static charge\n\nPHASE 2\n1. split in quadrants\n2. kill adds\n3. kite the strider\n4. KILL tainted elementals 15 seconds to kill\n5. dunk the tainted orbs 4 times\n6. kill remaining adds\n\nPHASE 3\n1. kill the bats coming in from the west\n2. move out of poison",
+    "message": "PHASE 1\n1. pull to edge of water\n2. SPREAD OUT for static charge\n\nPHASE 2\n1. split into quadrants\n2. kill adds\n3. kite the strider\n4. KILL tainted elementals 15 seconds to kill\n5. dunk the tainted orbs 4 times\n6. kill remaining adds\n\nPHASE 3\n1. kill the bats coming in from the west\n2. move out of poison",
     "warning": "- SPREAD OUT for static charge\n- net the striders\n- DM sporlings to absorb poison",
     "map": "ssc"
   }
