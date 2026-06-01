@@ -1,0 +1,192 @@
+var TK_PINS = [
+  {
+    "id": 1780277026063,
+    "type": "notes",
+    "x": 49.27022264240383,
+    "y": 97.42777077656872,
+    "title": "alar trash",
+    "message": "1. cc the star scryers\n2. kill the astro mancers\n3. move out of whirlwinds",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780278687691,
+    "type": "notes",
+    "x": 48.355111023237654,
+    "y": 80.92243266555495,
+    "title": "alar trash",
+    "message": "1. cc the star scryers\n2. kill the astro mancers\n3. move out of whirlwinds",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780278709855,
+    "type": "notes",
+    "x": 48.63312047555904,
+    "y": 89.37369052719018,
+    "title": "alar trash pat",
+    "message": "1. move out of whirlwind",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780278719240,
+    "type": "notes",
+    "x": 47.01139867035099,
+    "y": 71.09538864039772,
+    "title": "alar trash pats",
+    "message": "1. get aggro\n2. drag mobs into hallway\n3. ranged stack, melee stack",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780278767196,
+    "type": "boss",
+    "x": 48.679455384279265,
+    "y": 63.49580792760947,
+    "title": "ALAR",
+    "message": "PHASE 1\n1. 4 platforms, left to right 1-4, tank on edge of platforms\n2. pick up adds when moved\n3. MOVE DOWN for flame quills\n\nPHASE 2\n1. tank swap on melt armor\n2. move out of dive bomb\n3. kill adds",
+    "warning": "alar can charge a random target",
+    "map": "tk"
+  },
+  {
+    "id": 1780278960992,
+    "type": "notes",
+    "x": 40.992493744787325,
+    "y": 46.31485849056604,
+    "title": "trash",
+    "message": "1. kill 1 golem before it arcane explodes\n2. spell reflect or ground the overcharge",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279053506,
+    "type": "notes",
+    "x": 35.571309424520436,
+    "y": 41.715801886792455,
+    "title": "trash",
+    "message": "1. just kill the golem",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279073826,
+    "type": "notes",
+    "x": 56.17180984153462,
+    "y": 45.60731132075472,
+    "title": "trash",
+    "message": "1. kill 1 golem before it arcane explodes\n2. spell reflect or ground the overcharge",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279088211,
+    "type": "notes",
+    "x": 61.00917431192661,
+    "y": 41.47995283018868,
+    "title": "trash",
+    "message": "1. just kill the golem",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279116379,
+    "type": "notes",
+    "x": 22.14345287739783,
+    "y": 46.196933962264154,
+    "title": "trash",
+    "message": "1. mage cc smith\n2. warlocks banish mechanics\n3. tank and kill golems",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279153028,
+    "type": "boss",
+    "x": 17.889908256880734,
+    "y": 51.85731132075472,
+    "title": "VOID REAVER",
+    "message": "1. move in together, hunters out\n2. everyone stand in a stack in melee\n3. heal through damage, kill\n4. watch threat",
+    "warning": "- he sends out an arcane volley to ANYONE not in melee range, move out of it hunters, it's big and slow",
+    "map": "tk"
+  },
+  {
+    "id": 1780279239346,
+    "type": "boss",
+    "x": 79.19099249374479,
+    "y": 51.85731132075472,
+    "title": "SOLARIAN",
+    "message": "PHASE 1\n1. no threat\n2. stack up in melee and ranged\n3. move out of group stack whoever gets the debuff\n\nPHASE 2\n1. tank and kill her\n2. kill adds",
+    "warning": "- move out of group for knock up\n- kick add heals",
+    "map": "tk"
+  },
+  {
+    "id": 1780279343040,
+    "type": "notes",
+    "x": 73.26939115929942,
+    "y": 48.909198113207545,
+    "title": "trash",
+    "message": "1. kill the NETHER SCRYERS FIRST when fighting the patrolling mobs, they mc\n2. pull packs together in the middle for the ones on the sides",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279503283,
+    "type": "notes",
+    "x": 37.23936613844871,
+    "y": 34.994103773584904,
+    "title": "trash",
+    "message": "1. SPAM sheep the centurions\n2. kill the battle mages\n3. kill the blood knights",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279576707,
+    "type": "notes",
+    "x": 59.09090909090909,
+    "y": 34.75825471698113,
+    "title": "trash",
+    "message": "1. SPAM sheep the centurions\n2. kill the battle mages\n3. kill the blood knights",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279585668,
+    "type": "notes",
+    "x": 39.99165971643036,
+    "y": 28.15448113207547,
+    "title": "trash",
+    "message": "1. SPAM sheep the centurions\n2. kill the inquisitor",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279629020,
+    "type": "notes",
+    "x": 56.08840700583821,
+    "y": 26.857311320754718,
+    "title": "trash",
+    "message": "1. SPAM sheep the centurions\n2. kill the inquisitor",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279650252,
+    "type": "notes",
+    "x": 48.1651376146789,
+    "y": 23.673349056603772,
+    "title": "trash",
+    "message": "1. SPAM sheep the centurions\n2. move the marshal out for whirlwind\n3. kill the inquisitor\n4. kill knight\n5. kill the centurion\n6. kill the marshal",
+    "warning": "",
+    "map": "tk"
+  },
+  {
+    "id": 1780279750027,
+    "type": "boss",
+    "x": 48.99916597164304,
+    "y": 10.9375,
+    "title": "KAELTHAS",
+    "message": "PHASE 1\n1. kite and kill thaladred to the back \n2. kill sanguinar and telonicus on the left side of the platform\n3. don't get in 30 yards of capernian\n4. warlock drag her a little south, get threat, then kill\n\nPHASE 2\n1. group the weapons on center platform\n2. kick staff and mace\n3. hunter tank bow\n4. stun weapons, aoe them down\n5. there is a timer on this phase\n6. USE YOUR WEAPONS\n\nPHASE 3\n1. tank sanguinar and telonicus and melee kill\n2. warlock tank capernian\n3. have someone try to bait a conflag for positioning \n4. range kill thaladred\n5. range kill capernian'\n\nPHASE 4\n1. KICK ALL CASTS\n2. move out of flame runes\n3. off tank pick up phoenix, ranged kill\n4. all kill eggs\n\nPHASE 5\n1. move out of shadow orbs\n2. don't take too much fall damage at the end\n3. KICK ALL CASTS\n4. move out of flame runes\n5. off tank pick up phoenix, ranged kill\n6. all kill eggs",
+    "warning": "- don't bear tank kael, make sure shield has him\n- go slow and control the fight",
+    "map": "tk"
+  }
+];

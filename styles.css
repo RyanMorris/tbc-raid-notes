@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+.header {
+    padding: 0 12px;
+    background-color: #1a1f15;
+    border-bottom: 3px solid #6b8e23;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    min-height: 48px;
+}
+
+.header-left {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.header h1 {
+    font-size: 20px;
+    color: #c9b037;
+    align-self: center;
+    white-space: nowrap;
+}
+
+/* ── Map tabs ───────────────────────────────────────────────────────────────── */
+.map-tabs {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    padding-bottom: 0;
+}
+
+.map-tab {
+    padding: 8px 20px;
+    background-color: #131710;
+    color: #6b8e23;
+    border: 2px solid #3a5a10;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    transition: all 0.15s;
+    position: relative;
+    top: 3px;  /* overlap the header border */
+}
+
+.map-tab:hover {
+    background-color: #1e2a14;
+    color: #c9b037;
+    border-color: #6b8e23;
+}
+
+.map-tab.active {
+    background-color: #2d5016;
+    color: #c9b037;
+    border-color: #6b8e23;
+    border-bottom: 3px solid #2d5016; /* hide bottom border to "connect" to content */
+    z-index: 1;
+}
+
+/* ── Controls ───────────────────────────────────────────────────────────────── */
+.controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.zoom-level {
+    font-size: 14px;
+    min-width: 100px;
+    color: #c9b037;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #2d5016;
+    color: #c9b037;
+    border: 2px solid #6b8e23;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #6b8e23;
+    color: #000;
+}
+
+button:active {
+    background-color: #4a7023;
+}
+
+/* ── Map container ──────────────────────────────────────────────────────────── */
+.container {
+    flex: 1;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: grid;
+    place-items: center;
+}
+
+#pinsContainer {
+    position: fixed;
+    pointer-events: none;
+    z-index: 50;
+}
+
+#pinsContainer .pin {
+    pointer-events: auto;
+}
+
+#map {
+    max-width: none;
+    max-height: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    cursor: grab;
+    transition: transform 0.1s ease-out;
+    display: block;
+}
+
+#map:active {
+    cursor: grabbing;
+}
+
+.info {
+    padding: 6px 8px;
+    background-color: #1a1f15;
+    border-top: 3px solid #6b8e23;
+    font-size: 12px;
+    color: #6b8e23;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────────────── */
+.sidebar {
+    width: 200px;
+    background-color: #1a1f15;
+    border-right: 3px solid #6b8e23;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    font-size: 14px;
+    color: #c9b037;
+    text-transform: uppercase;
+    border-bottom: 2px solid #6b8e23;
+    padding-bottom: 8px;
+}
+
+.pin-type-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pin-type-btn {
+    padding: 10px;
+    background-color: #2d5016;
+    color: #c9b037;
+    border: 2px solid #6b8e23;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.pin-type-btn:hover {
+    background-color: #6b8e23;
+    color: #000;
+}
+
+.pin-type-btn.active {
+    background-color: #6b8e23;
+    color: #000;
+    box-shadow: 0 0 10px #6b8e23;
+}
+
+/* ── Import / Export ────────────────────────────────────────────────────────── */
+.pin-io-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid #2d3d1a;
+    padding-top: 12px;
+    margin-top: 4px;
+}
+
+.pin-io-group button {
+    padding: 9px 10px;
+    background-color: #151a10;
+    color: #6b8e23;
+    border: 1px dashed #4a6a1a;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+}
+
+.pin-io-group button:hover {
+    background-color: #1e2a14;
+    color: #c9b037;
+    border-color: #6b8e23;
+    border-style: solid;
+}
+
+/* ── Pin styles ─────────────────────────────────────────────────────────────── */
+.pin {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+.pin:hover {
+    transform: scale(1.3);
+}
+
+.pin.notes {
+    background-color: #6b8e23;
+    border: 2px solid #c9b037;
+}
+
+.pin.warning,
+.pin.boss {
+    background-color: #c9b037;
+    border: 2px solid #8b0000;
+    animation: pulse-warning 1.5s infinite;
+}
+
+@keyframes pulse-warning {
+    0%, 100% { box-shadow: 0 0 0 0   rgba(139, 0, 0, 0.7); }
+    50%       { box-shadow: 0 0 0 6px rgba(139, 0, 0, 0);   }
+}
+
+/* ── Hover popup ────────────────────────────────────────────────────────────── */
+.popup {
+    background-color: #1a1f15;
+    border: 2px solid #6b8e23;
+    border-radius: 4px;
+    padding: 12px;
+    max-width: 350px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    display: block;
+    z-index: 1001;
+}
+
+.popup h3 {
+    color: #c9b037;
+    font-size: 14px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #6b8e23;
+    padding-bottom: 4px;
+}
+
+.popup .section {
+    margin-bottom: 8px;
+}
+
+.popup .section-label {
+    color: #6b8e23;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.popup .section-content {
+    color: #ddd;
+    font-size: 12px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.popup-hint {
+    margin-top: 8px;
+    font-size: 10px;
+    color: #4a6a1a;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ── Pin editor modal ───────────────────────────────────────────────────────── */
+.pin-editor-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: overlayFadeIn 0.15s ease;
+}
+
+@keyframes overlayFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.pin-editor-modal {
+    background: #1a1f15;
+    border: 2px solid #6b8e23;
+    border-radius: 6px;
+    width: 360px;
+    max-width: calc(100vw - 32px);
+    box-shadow: 0 0 40px rgba(0,0,0,0.9), 0 0 20px rgba(107,142,35,0.2);
+    animation: modalSlideIn 0.18s ease;
+    overflow: hidden;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-12px); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+}
+
+.pin-editor-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px 12px;
+    border-bottom: 2px solid #6b8e23;
+    background: #151a10;
+}
+
+.pin-editor-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.pin-editor-header h2 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #c9b037;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0;
+}
+
+.pin-editor-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pin-editor-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pin-editor-field label {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b8e23;
+}
+
+.pin-editor-field input,
+.pin-editor-field textarea {
+    background: #0f1209;
+    border: 1px solid #4a6a1a;
+    border-radius: 3px;
+    color: #e8e8e8;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    padding: 8px 10px;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.15s;
+}
+
+.pin-editor-field input:focus,
+.pin-editor-field textarea:focus {
+    border-color: #6b8e23;
+    box-shadow: 0 0 0 2px rgba(107, 142, 35, 0.2);
+}
+
+.pin-editor-field input::placeholder,
+.pin-editor-field textarea::placeholder {
+    color: #4a5a3a;
+}
+
+.pin-editor-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 16px 14px;
+    border-top: 1px solid #2d3d1a;
+}
+
+.pin-editor-footer-right {
+    display: flex;
+    gap: 8px;
+}
+
+.pin-editor-delete {
+    padding: 7px 14px;
+    background: transparent;
+    color: #c0392b;
+    border: 1px solid #6b1a1a;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.pin-editor-delete:hover {
+    background: #6b1a1a;
+    color: #fff;
+    border-color: #c0392b;
+}
+
+.pin-editor-cancel {
+    padding: 7px 18px;
+    background: transparent;
+    color: #888;
+    border: 1px solid #444;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.pin-editor-cancel:hover {
+    background: #2a2a2a;
+    color: #ccc;
+    border-color: #666;
+}
+
+.pin-editor-save {
+    padding: 7px 22px;
+    background: #2d5016;
+    color: #c9b037;
+    border: 2px solid #6b8e23;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.pin-editor-save:hover {
+    background: #6b8e23;
+    color: #000;
+    box-shadow: 0 0 10px rgba(107, 142, 35, 0.4);
+}

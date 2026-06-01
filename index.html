@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raid Maps</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <h2>Pin Tools</h2>
+        <div class="pin-type-group">
+            <button class="pin-type-btn active" data-pin-type="notes">
+                📌 Notes Pin
+            </button>
+            <button class="pin-type-btn" data-pin-type="warning">
+                ⚠️ Warning Pin
+            </button>
+            <button class="pin-type-btn" data-pin-type="boss">
+                💀 Boss Pin
+            </button>
+        </div>
+        <div class="pin-io-group">
+            <button id="exportPinsBtn">⬆ Export Pins</button>
+            <button id="importPinsBtn">⬇ Import Pins</button>
+            <input type="file" id="importFileInput" accept=".json" style="display:none">
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="header">
+            <div class="header-left">
+                <h1>Raid Maps</h1>
+                <div class="map-tabs">
+                    <button class="map-tab active" data-map="ssc">SSC Map</button>
+                    <button class="map-tab" data-map="tk">TK Map</button>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="zoom-level">Zoom: <span id="zoomPercent">100</span>%</div>
+                <button id="zoomIn">Zoom In</button>
+                <button id="zoomOut">Zoom Out</button>
+                <button id="resetZoom">Reset</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="image-wrapper" id="imageWrapper">
+                <img id="map" src="assets/ssc-map.png" alt="Map" draggable="false">
+                <div id="pinsContainer"></div>
+                <div id="popupContainer"></div>
+            </div>
+        </div>
+
+        <div class="info">
+            Use mouse wheel to zoom • Drag to pan • Click buttons to adjust zoom • Select a pin type and click on map to place pins
+        </div>
+    </div>
+
+    <script src="ssc-pins.js"></script>
+    <script src="tk-pins.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
